@@ -5,3 +5,4 @@ qrcode
 pillow
 python-dotenv
 google-generativeai
+beautifulsoup4

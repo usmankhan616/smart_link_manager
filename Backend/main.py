@@ -7,6 +7,7 @@ from fastapi.responses import StreamingResponse
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
@@ -14,6 +15,20 @@ class URLItem(BaseModel):
     url: str
 
 app = FastAPI()
+
+# --- Add CORS Middleware ---
+origins = [
+    "http://localhost:5173",
+    "http://localhost:4173",
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+# --------------------------------
 
 # --- Google Gemini API Configuration ---
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -31,25 +46,23 @@ browser_headers = {
 def read_root():
     return {"message": "Smart Link Manager API is running! 🚀"}
 
-# UPDATED: Using the unshorten.me API
-@app.post("/expand/")
+# UPDATED: Removed trailing slash
+@app.post("/expand")
 async def expand_link(item: URLItem):
     api_url = f"https://unshorten.me/api/v2/unshorten?url={item.url}"
     try:
         response = requests.get(api_url, headers=browser_headers, timeout=10)
-        response.raise_for_status() # This will raise an error for bad responses (4xx or 5xx)
-        
+        response.raise_for_status() 
         data = response.json()
         if data.get("unshortened_url"):
             return {"original_url": item.url, "expanded_url": data["unshortened_url"]}
         else:
-            # If the API doesn't return the expected key, return the original URL
             return {"original_url": item.url, "expanded_url": item.url}
-
     except requests.RequestException:
         raise HTTPException(status_code=400, detail="Invalid or unreachable URL provided.")
 
-@app.post("/qrcode/")
+# UPDATED: Removed trailing slash
+@app.post("/qrcode")
 async def create_qrcode(item: URLItem):
     img = qrcode.make(item.url)
     buf = io.BytesIO()
@@ -57,7 +70,8 @@ async def create_qrcode(item: URLItem):
     buf.seek(0)
     return StreamingResponse(buf, media_type="image/png")
 
-@app.post("/shorten/")
+# UPDATED: Removed trailing slash
+@app.post("/shorten")
 async def shorten_link(item: URLItem):
     api_url = f"http://tinyurl.com/api-create.php?url={item.url}"
     try:
@@ -69,7 +83,8 @@ async def shorten_link(item: URLItem):
     except requests.RequestException:
         raise HTTPException(status_code=500, detail="Error connecting to shortening service.")
 
-@app.post("/correct/")
+# UPDATED: Removed trailing slash
+@app.post("/correct")
 async def correct_link_ai(item: URLItem):
     if not GOOGLE_API_KEY:
         raise HTTPException(status_code=500, detail="Google API Key is not configured.")

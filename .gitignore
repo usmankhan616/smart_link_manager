@@ -1,18 +1,15 @@
 # Secret environment files
-# Never commit these!
 .env
 */.env
 
-# Python virtual environment
-venv/
-*/venv/
+# Python backend specific
+backend/venv/
+backend/__pycache__/
 
-# Python cache files
-__pycache__/
-*/__pycache__/
+# SvelteKit frontend specific
+frontend/node_modules/
+frontend/.svelte-kit/
+frontend/build/
+
+# General Python files
 *.pyc
-
-# SvelteKit files
-.svelte-kit/
-build/
-node_modules/
