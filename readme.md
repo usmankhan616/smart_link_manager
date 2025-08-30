@@ -25,7 +25,7 @@ This full-stack application ensures a seamless user experience for managing URLs
 
 _(Add your screenshots here by dragging & dropping into this README on GitHub)_  
 
-![Your Screenshot Here](#)  
+![Website Screenshot](./websiteimage.png)
 
 ---
 
