@@ -1,59 +1,67 @@
-🔗 Smart Link Manager
-An intelligent, all-in-one tool to correct, preview, shorten, and generate QR codes for your links, powered by AI.
+# 🔗 Smart Link Manager
 
-This full-stack application provides a seamless user experience for managing URLs, with a unique AI-powered feature to fix broken or mistyped links.
+An intelligent, all-in-one tool to **correct, preview, shorten, and generate QR codes** for your links — powered by **AI**.  
 
-✨ Live Demo
-Frontend (Vercel): https://smart-link-manager.vercel.app/
+This full-stack application ensures a seamless user experience for managing URLs, with a unique **AI-powered feature to fix broken or mistyped links**.
 
-Backend API Docs (Hugging Face): https://userusman123-smart-link-api.hf.space/docs
+---
 
-🚀 Features
-AI Link Correction: Automatically fixes common typos and errors in URLs (e.g., gogle.cm becomes google.com).
+## ✨ Live Demo  
+- 🌐 **Frontend (Vercel):** [smart-link-manager.vercel.app](https://smart-link-manager.vercel.app/)  
+- ⚡ **Backend API Docs (Hugging Face):** [userusman123-smart-link-api.hf.space/docs](https://userusman123-smart-link-api.hf.space/docs)  
 
-Link Preview: Generates a rich preview card for any link, showing its title, description, and preview image.
+---
 
-URL Shortening: Instantly shortens long URLs using the TinyURL service.
+## 🚀 Features  
 
-QR Code Generation: Creates a downloadable QR code for any link on the fly.
+✅ **AI Link Correction** – Automatically fixes common typos and errors in URLs (e.g., `gogle.cm` → `google.com`).  
+✅ **Link Preview** – Generates a rich preview card (title, description, preview image).  
+✅ **URL Shortening** – Instantly shortens long URLs via **TinyURL**.  
+✅ **QR Code Generation** – Creates a downloadable QR code for any link.  
 
-📸 Screenshots
-(Add your screenshots of the application here. You can drag and drop them into this README on GitHub.)
+---
 
-[Your Screenshot Here]
+## 📸 Screenshots  
 
-🤔 What Makes This Different?
-While many tools can shorten links or create QR codes, the Smart Link Manager stands out with its intelligent AI-powered correction. Most tools will simply fail if a user enters a slightly incorrect URL. This application uses Google's Gemini model to understand the user's intent and provide a corrected, functional link, saving time and reducing frustration.
+_(Add your screenshots here by dragging & dropping into this README on GitHub)_  
 
-🛠️ How It's Made: Tech Stack & Tools
-This project is a modern full-stack application, separating the backend logic from the frontend user interface.
+![Your Screenshot Here](#)  
 
-Backend (/backend)
-Framework: FastAPI (Python) - For building a high-performance, modern, and well-documented API.
+---
 
-AI Model: Google Gemini API (gemini-1.5-flash-latest) - Used for the core link correction feature.
+## 🤔 What Makes This Different?  
 
-Web Scraping: Beautiful Soup - To parse HTML and extract metadata for the link preview feature.
+Unlike many link tools that only shorten or generate QR codes, **Smart Link Manager** stands out with its **AI-powered correction**.  
+🔹 Most tools fail when users enter incorrect URLs.  
+🔹 This app uses **Google’s Gemini model** to understand intent and provide corrected, working links — saving time and reducing frustration.  
 
-Deployment: Hugging Face Spaces (with a custom Dockerfile) - For hosting the live Python API.
+---
 
-Frontend (/frontend)
-Framework: SvelteKit - A modern, fast, and component-based framework for building web applications.
+## 🛠️ Tech Stack  
 
-Language: TypeScript - For adding type safety and improving code quality.
+### 🔹 Backend (`/backend`)  
+- ⚡ **FastAPI (Python)** – High-performance API framework  
+- 🤖 **Google Gemini API** – Core AI-powered link correction  
+- 🕵️ **BeautifulSoup** – Extracts metadata for link previews  
+- 🚀 **Deployment:** Hugging Face Spaces (Dockerfile-based)  
 
-Styling: Plain CSS with a focus on a clean, modern UI.
+### 🔹 Frontend (`/frontend`)  
+- ⚡ **SvelteKit** – Fast, component-based UI framework  
+- 📝 **TypeScript** – Type safety + better developer experience  
+- 🎨 **Plain CSS** – Clean & modern UI design  
+- 🚀 **Deployment:** Vercel (CI/CD hosting)  
 
-Deployment: Vercel - For continuous, high-performance hosting of the frontend application.
+### 🔹 Dev Tools  
+- 🖊️ **Editor:** VS Code  
+- 🔧 **Version Control:** Git + GitHub  
+- 💻 **Terminal:** Git Bash  
+- 📦 **Package Manager:** npm  
 
-Development Tools
-Code Editor: Visual Studio Code
+---
 
-Version Control: Git & GitHub
+## 🌟 Support This Project  
 
-Terminal: Git Bash
+If you found **Smart Link Manager** useful or interesting:  
+⭐ Please **star the repo** on GitHub — it helps a lot!  
 
-Package Manager: npm
-
-🌟 Give it a Star!
-If you found this project useful or interesting, please consider giving it a star on GitHub! ⭐
+---
